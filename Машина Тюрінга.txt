@@ -1,0 +1,303 @@
+0 * * l 0
+0 _ S r c0
+
+c0 * * r c0
+c0 _ d r c1
+
+c1 * * r c1
+c1 _ F l c2
+
+c2 * * l c2
+c2 S * r c3
+
+c3 0 o r c4
+c3 1 i r c5
+c3 o * r c3
+c3 i * r c3
+c3 d S r c6
+c3 F * l c7
+
+c4 * * r c4
+c4 _ 0 l c2
+
+c5 * * r c5
+c5 _ 1 l c2
+
+c6 * * r c6
+c6 _ d l c2
+
+c7 o 0 l c7
+c7 i 1 l c7
+c7 S d l c7
+c7 _ * r c7.1
+c7.1 d S r c8
+
+c8 F * r n0
+c8 * * r c8
+
+
+n0 0 * r n0
+n0 1 * r n0
+n0 d * r n0
+n0 i * l n1
+n0 o * l n1
+n0 I * r n0
+n0 O * r n0
+n0 _ * l n1
+
+n1 0 o l n2
+n1 1 i l n3
+n1 o * l n1
+n1 i * l n1
+n1 d * l n6
+
+n2 0 * l n2
+n2 1 * l n2 
+n2 d * l n4
+
+n3 0 * l n3
+n3 1 * l n3
+n3 d * l n5 
+
+n4 0 O r n0
+n4 1 I r n0
+n4 O * l n4
+n4 I * l n4
+n4 F * r mul
+
+n5 0 I l n5.1
+n5 1 O r n0
+n5 O * l n5
+n5 I * l n5
+n5 F * r mul
+
+n5.1 0 1 l n5.1
+n5.1 1 0 r n0
+n5.1 F * r mul
+
+n6 0 * l n6
+n6 1 * l n6
+n6 O 0 l n6
+n6 I 1 l n6
+n6 F * r n7
+
+n7 0 * r n7
+n7 d * r plus
+n7 1 * r n8
+
+n8 0 * r n8
+n8 1 * r n8
+n8 d * r n8
+n8 o 0 r n8
+n8 i 1 r n8
+n8 _ * l n1
+
+plus * * r plus
+plus _ * l p1
+
+p1 * _ l p1
+p1 F * l p3
+
+p2 * * r p2
+p2 F * l p3
+
+p3 0 o l p4
+p3 1 i l p5
+p3 o * l p3
+p3 i * l p3
+p3 d F l p6
+p3 S * r p7
+
+p4 * * l p4
+p4 _ 0 r p2
+
+p5 * * l p5
+p5 _ 1 r p2
+
+p6 * * l p6
+p6 _ P r p2
+
+p7 o 0 r p7
+p7 i 1 r p7
+p7 F d r p7
+p7 _ * l p7.1
+p7.1 d F l p8
+
+p8 S * l p10
+p8 * * l p8
+
+p9 0 * r p9
+p9 1 * r p9
+p9 P * r p9
+p9 O * r p9
+p9 I * r p9
+p9 o * l p10
+p9 i * l p10
+
+p10 0 o l p11_0
+p10 1 i l p12_0
+p10 P * l p13
+
+p11_0 * * l p11_0
+p11_0 P * l p11
+p11 O * l p11
+p11 I * l p11
+p11 0 O r p9
+p11 1 I r p9
+
+p12_0 * * l p12_0
+p12_0 P * l p12
+p12 O * l p12
+p12 I * l p12
+p12 0 I r p9
+p12 1 O l p12_1
+
+p12_1 0 1 r p9
+p12_1 1 0 l p12_1
+p12_1 _ 1 r p9
+
+p13 O 0 l p13
+p13 I 1 l p13
+p13 * * l p13
+p13 _ * r p14
+
+p14 0 _ r p15
+p14 1 _ r p16
+p14 P _ r p17
+
+p15 * * r p15
+p15 _ 0 l p13
+
+p16 * * r p16
+p16 _ 1 l p13
+
+p17 * _ r p17
+p17 S _ r p18
+
+p18 * * r p18
+p18 d _ r p18
+p18 F _ r p18
+p18 _ * * halt
+
+mul * * r mul
+mul _ * l m1
+
+m1 * _ l m1
+m1 F * l m3
+
+m2 * * r m2
+m2 F * l m3
+
+m3 0 o l m4
+m3 1 i l m5
+m3 o * l m3
+m3 i * l m3
+m3 d F l m6
+m3 S * r m7
+
+m4 * * l m4
+m4 _ 0 r m2
+
+m5 * * l m5
+m5 _ 1 r m2
+
+m6 * * l m6
+m6 _ M r m2
+
+m7 o 0 r m7
+m7 i 1 r m7
+m7 F d r m7
+m7 _ * l m7.1
+m7.1 d F l m8
+
+m8 _ = r m9
+m8 * * l m8
+
+m9 * * r m9
+m9 M * l m10
+m9 o * l m10
+m9 i * l m10
+
+m10 0 o l m11
+m10 1 i l m12
+m10 = * r m13
+
+m11 * * l m11
+m11 _ 0 r m9
+
+m12 * * l m12
+m12 _ 1 r m9
+
+m13 * * r m13
+m13 o 0 r m13
+m13 i 1 r m13
+m13 S * l m14
+
+m14 0 1 l m14
+m14 1 0 r m17
+
+m17 * * r m17
+m17 S * l m18
+
+m18 0 * l m18
+m18 1 * l m19
+m18 M * l m25
+
+m19 * * l m19
+m19 M * l m21
+
+m20 0 * r m20
+m20 1 * r m20
+m20 = * r m20
+m20 O * r m20
+m20 I * r m20
+m20 o * l m21
+m20 i * l m21
+
+m21 0 o l m22_0
+m21 1 i l m23_0
+m21 = * l m24
+
+m22_0 * * l m22_0
+m22_0 = * l m22
+m22 O * l m22
+m22 I * l m22
+m22 0 O r m20
+m22 1 I r m20
+
+m23_0 * * l m23_0
+m23_0 = * l m23
+m23 O * l m23
+m23 I * l m23
+m23 0 I r m20
+m23 1 O l m23_1
+
+m23_1 0 1 r m20
+m23_1 1 0 l m23_1
+m23_1 _ 1 r m20
+
+m24 * * l m24 
+m24 O 0 l m24
+m24 I 1 l m24
+m24 _ * r m13
+
+m25 * * l m25
+m25 _ * r m26
+
+m26 0 _ r m27
+m26 1 _ r m28
+m26 = _ r m29 
+
+m27 * * r m27
+m27 _ 0 l m25
+
+m28 * * r m28
+m28 _ 1 l m25
+
+m29 * _ r m29
+m29 S _ r m30
+
+m30 * * r m30
+m30 d _ r m30
+m30 F _ r m30
+m30 _ 0 * halt
